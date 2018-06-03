@@ -1,0 +1,46 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-9 blog-main">
+      <div class="blog-post">
+        <!--start of page content-->
+        <h2 class="blog-post-title">Home page</h2>
+
+        <h3>Featured Wiki Pages</h3>
+        <p>These are the top rates Wiki articles, based on a mysterious logic.</p>
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let value of values | slice:0:4">
+          <h4><a routerLink="/detail/{{value.id}}">{{value.title}}</a></h4>
+          <div class="hovereffect">
+            <img class="img-responsive" src="{{value.image}}" alt="{{value.title}}">
+            <a routerLink="/detail/{{value.id}}">
+              <div class="overlay">
+                <h3>READ ARTICLE</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+        <app-about></app-about>
+
+        <!--end of page content-->
+      </div><!-- /.blog-post -->
+
+    </div><!-- /.blog-main -->
+
+    <aside class="col-md-3 blog-sidebar">
+
+      <div class="p-3">
+        <h4 class="font-italic">Articles</h4>
+        <ol class="list-unstyled mb-0">
+          <li *ngFor="let value of values"><a routerLink="/detail/{{value.id}}">{{value.title}}</a></li>
+        </ol>
+      </div>
+
+      <hr>
+
+      <app-accordion></app-accordion>
+    </aside><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+

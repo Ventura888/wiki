@@ -1,0 +1,11 @@
+<div id="search-component">
+  <p>Search Wiki page:</p>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+  <ul class="search-result">
+    <li *ngFor="let value of values$ | async" >
+      <a routerLink="/detail/{{value.id}}">
+        {{value.title}}
+      </a>
+    </li>
+  </ul>
+</div>

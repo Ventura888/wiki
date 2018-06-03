@@ -1,0 +1,6 @@
+<div class="p-3">
+  <h4 class="font-italic">Articles</h4>
+  <ol class="list-unstyled mb-0">
+    <li *ngFor="let value of values"><a routerLink="/detail/{{value.id}}">{{value.title}}</a></li>
+  </ol>
+</div>

@@ -1,0 +1,54 @@
+<div class="p-3 mb-3 bg-light rounded">
+  <h4 class="font-italic">About</h4>
+  <p class="mb-0">This is an Angular 6 project. Created by Asaf Ventura as a homework project of WEBbeast course.</p>
+</div>
+<hr>
+<div class="bs-example">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Search</a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in">
+        <div class="panel-body">
+          <app-value-search></app-value-search>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Github</a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="list-unstyled mb-0">
+            <li><a href="https://github.com/WEBbeast2018" target="_blank">WEBbeast 2018 Github</a></li>
+            <li><a href="https://github.com/Ventura888" target="_blank">My Github (Ventura888)</a></li>
+            <li><a href="https://github.com/Ventura888" target="_blank">This Project repository</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Site Links</a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body">
+          <ul class="list-unstyled mb-0">
+            <li><a routerLink="/home">Home page</a></li>
+            <li><a routerLink="/values">Browse values</a></li>
+            <li><a routerLink="/new">Create a new value</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p><strong>Note:</strong> Click on the linked heading text to expand or collapse accordion panels.</p>
+</div>

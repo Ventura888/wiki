@@ -1,0 +1,100 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <div class="blog-post">
+        <div *ngIf="value">
+          <h1>{{ value.title }} <img src='{{value.image}}' style="float:right;width:200px;height:200px;"></h1>
+
+          <p>written by {{value.author}} on {{value.date}}
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-xs btn-default" data-toggle="modal" data-target="#modalLong">
+              <span class="glyphicon glyphicon-edit"></span> Edit
+            </button>
+            <button type="button" class="btn btn-xs btn-default" routerLink="/values">
+              <span class="glyphicon glyphicon-backward"></span> Back to values page
+            </button></p><br>
+          <p [innerHTML]="value.content"></p>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalLong" tabindex="-1" role="dialog"
+             aria-labelledby="modalLongTitle"
+             aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="modalLongTitle">Edit Value</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div *ngIf="value">
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Title:</label>
+                    <div class="col-sm-10">
+                      <input [(ngModel)]="value.title" placeholder="date"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Image:</label>
+                    <div class="col-sm-10">
+                      <input [(ngModel)]="value.image" placeholder="date"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Author:</label>
+                    <div class="col-sm-10">
+                      <input [(ngModel)]="value.author" placeholder="date"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">date:</label>
+                    <div class="col-sm-10">
+                      <input [(ngModel)]="value.date" placeholder="date"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-sm-2">Content:</label>
+                    <div class="col-sm-10">
+                      <ckeditor [(ngModel)]="value.content" placeholder="content" [config]="ckeConfig" debounce="500"
+                                (change)="onChange($event)"></ckeditor>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="save(); goBack();">Save
+                  changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="col-md-4 blog-sidebar">
+      <div class="p-3">
+        <p class="objectParagraph">
+          <span style="color:#e2e2e2;">//Object display:</span><br>
+          <span style="color:white;">&#10100;</span><br>
+          <span class="propertyColor">id<span style="color:white;">: </span> </span> <span class="valueColor">{{value.id}}</span><span class="objectComma">,</span><br>
+          <span class="propertyColor">title<span style="color:white;">: </span> </span> <span class="valueColor">{{value.title}}</span><span
+          class="objectComma">,</span><br>
+          <span class="propertyColor">author<span style="color:white;">: </span> </span> <span class="valueColor">{{value.author}}</span><span
+          class="objectComma">,</span><br>
+          <span class="propertyColor">date<span style="color:white;">: </span> </span> <span class="valueColor">{{value.date}}</span><span
+          class="objectComma">,</span><br>
+          <span class="propertyColor">image<span style="color:white;">: </span> </span> <span class="valueColor">{{value.image}}</span><span
+          class="objectComma">,</span><br>
+          <span class="propertyColor">content<span style="color:white;">: </span> </span> <span class="valueColor">{{value.content}}</span><span
+          class="objectComma">,</span><br>
+          <span class="propertyColor">category<span style="color:white;">: </span> </span> <span class="valueColor">{{value.category}}</span><span
+          class="objectComma"></span><br>
+          <span style="color:white;">&#10101;</span>
+        </p>
+      </div>
+    </aside>
+  </div>
+</main>

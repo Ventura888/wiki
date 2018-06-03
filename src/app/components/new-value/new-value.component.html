@@ -1,0 +1,83 @@
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-9 blog-main">
+      <div class="blog-post">
+        <form class="form-horizontal">
+
+          <div class="form-group">
+            <label class="control-label col-sm-2">Title:</label>
+            <div class="col-sm-10">
+              <input class="form-control" #valueTitle/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2">Author:</label>
+            <div class="col-sm-10">
+              <input class="form-control" #valueAuthor/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2">Date (select):</label>
+            <div class="col-sm-4">
+              <input type="date" class="form-control" #valueDate/>
+            </div>
+            <label class="control-label col-sm-2">Category:</label>
+            <div class="col-sm-4">
+              <select class="form-control" #valueCategory>
+                <option>Science</option>
+                <option>Computers</option>
+                <option>TV Shows</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2">Image:</label>
+            <div class="col-sm-10">
+              <input value="https://image.ibb.co/bAv08J/empty.png" class="form-control" #valueImage/>
+            </div>
+          </div>
+
+          <!--<div class="form-group">-->
+          <!--<label class="control-label col-sm-2">Content:</label>-->
+          <!--<div class="col-sm-10">-->
+          <!--<textarea class="form-control" rows="5" #valueContent></textarea>-->
+          <!--</div>-->
+          <!--</div>-->
+
+          <div class="form-group">
+            <label class="control-label col-sm-2">Content:</label>
+            <div class="col-sm-10">
+              <ckeditor #valueContent [config]="ckeConfig" debounce="500" (change)="onChange($event)"></ckeditor>
+            </div>
+          </div>
+
+          <!-- (click) passes input value to add() and then clears the input -->
+          <div class="form-group">
+            <label class="control-label col-sm-2"></label>
+            <div class="col-sm-10">
+              <button type="button" class="btn btn-default" routerLink="/values"
+                      (click)="add(valueTitle.value, valueAuthor.value, valueDate.value, valueImage.value, valueContent.value, valueCategory.value); valueTitle.value=''; valueAuthor.value=''; valueDate.value=''; valueImage.value=''; valueContent.value=''; valueCategory.value='' ">
+                <span class="glyphicon glyphicon-plus"></span> Add
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <aside class="col-md-3 blog-sidebar">
+
+      <div class="p-3">
+        <h4 class="font-italic">Articles</h4>
+        <ol class="list-unstyled mb-0">
+          <li *ngFor="let value of values"><a routerLink="/detail/{{value.id}}">{{value.title}}</a></li>
+        </ol>
+      </div>
+      <hr>
+      <app-accordion></app-accordion>
+    </aside><!-- /.blog-sidebar -->
+  </div>
+</main>
